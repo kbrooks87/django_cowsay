@@ -7,6 +7,13 @@ from django_cowsay.forms import CowsayForm
 # Create your views here.
 
 
+"""
+citing who i got help from here:
+demo HTTP Forms & Cows
+listening to Sohail talk about different ways to do things like using .all().order_by
+"""
+
+
 def cowsayinput(request):
     if request.method == "POST":
         form = CowsayForm(request.POST)
@@ -22,6 +29,6 @@ def cowsayinput(request):
     return render(request, "index.html", {"form": form})
 
 def history(request):
-    history = CowsayInputModel.objects.all()
+    history = CowsayInputModel.objects.all().order_by('-id')[:10]
     return render(request, "history.html", {"history": history})
 
