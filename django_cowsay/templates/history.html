@@ -1,0 +1,9 @@
+<div>
+    <a href="/">HOME</a>
+    <h1>Past 10</h1>
+    <ol>
+        {% for post in history %}
+        <li>{{ post }}</li>
+        {% endfor %}
+    </ol>
+</div>
